@@ -1,20 +1,35 @@
 {% extends "base.html" %}
 
-{% block content %}
-<div class="container-fluid">
-<div class="row mx-auto">
-    {% for product in products %}
-    <div class="card mx-auto" style="width: 18rem;">
-        <img src="{{product.image.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">{{product.description}}</p>
-          <p class="card-text"><b>${{product.price}}</b></p>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>
-      </div>
 
-    {% endfor %}
-</div>
+{% block content %}
+<div class="container-fluid mt-3">
+  <div class="row">
+    <!-- Category -->
+    <div class="col-lg-2 ">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">Active item</a>
+        <a href="#" class="list-group-item list-group-item-action">Item</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">Disabled item</a>
+      </div>
+    </div>
+
+
+    <!-- Showcase -->
+    <div class="col-lg-10">
+      <div class="row mx-auto">
+          {% for product in products %}
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text">{{product.description}}</p>
+                  <p class="card-text"><b>${{product.price}}</b></p>
+                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+          {% endfor %}
+      </div>
+  </div>
+  </div>
 </div>
 {% endblock %}
